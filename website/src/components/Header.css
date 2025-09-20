@@ -1,0 +1,209 @@
+:root {
+  --neon-cyan: #0ff0fc;
+  --neon-pink: #ff2d95;
+  --neon-purple: #8a2be2;
+  --deep-space: #0a0a1a;
+  --cosmic-purple: #1a0033;
+  --void-black: #050508;
+  --stardust: #e0d2ff;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  position: relative;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 5, 8, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+nav a {
+  color: var(--stardust);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  position: relative;
+  padding: 8px 0;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.btn-outline {
+  border: 2px solid var(--neon-purple);
+  background: transparent;
+  color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(138, 43, 226, 0.1);
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+  border: none;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 60px rgba(138, 43, 226, 0.4);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.language-toggler {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px 16px;
+  background: rgba(10, 10, 26, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: var(--stardust);
+  z-index: 100;
+}
+
+.language-toggler:hover {
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.language-toggler i {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: var(--neon-cyan);
+}
+
+.language-toggler:hover i {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  width: 100%;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  background: rgba(10, 10, 26, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.language-toggler:hover .lang-dropdown {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lang-dropdown li {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--stardust);
+}
+
+.lang-dropdown li:hover {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 45, 149, 0.1));
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 992px) {
+  nav ul {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .header-right {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

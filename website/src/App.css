@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+:root {
+    --neon-cyan: #0ff0fc;
+    --neon-pink: #ff2d95;
+    --neon-purple: #8a2be2;
+    --deep-space: #0a0a1a;
+    --cosmic-purple: #1a0033;
+    --void-black: #050508;
+    --stardust: #e0d2ff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo 2', 'Segoe UI', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background: linear-gradient(135deg, var(--void-black) 0%, var(--deep-space) 50%, var(--cosmic-purple) 100%);
+    color: var(--stardust);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ambient-light {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.15;
+    z-index: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.light-1 {
+    background: var(--neon-cyan);
+    top: 20%;
+    left: 10%;
+    animation: lightMouvement 15s ease-in-out infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.light-2 {
+    background: var(--neon-pink);
+    top: 60%;
+    right: 10%;
+    animation: lightMouvement 18s ease-in-out infinite reverse;
 }
+
+.light-3 {
+    background: var(--neon-purple);
+    bottom: 10%;
+    left: 20%;
+    animation: lightMouvement 12s ease-in-out infinite;
+}
+
+@keyframes lightMouvement {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(40px, -30px) scale(1.1); }
+    50% { transform: translate(-20px, 40px) scale(0.9); }
+    75% { transform: translate(-30px, -40px) scale(1.05); }
+}
+

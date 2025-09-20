@@ -1,12 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Home from './pages/Home'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Bienvenue sur MinyMind 🚀</h1>
-      <p>Le site pour apprendre et expérimenter avec l'IA</p>
-    </div>
-  );
+    <Router>
+      <div className="App">
+        <div className="ambient-light light-1"></div>
+        <div className="ambient-light light-2"></div>
+        <div className="ambient-light light-3"></div>
+        <Header />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
+  )
 }
 
 export default App;
