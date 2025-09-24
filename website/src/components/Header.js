@@ -26,7 +26,7 @@ export default function Header() {
           
         <div className="auth-buttons">
           <button className="btn btn-outline">Login</button>
-          <button className="btn btn-primary">Register</button>
+          <Link to="/register" className="btn btn-primary">Register</Link>
         </div>
       </div>
     </header>
