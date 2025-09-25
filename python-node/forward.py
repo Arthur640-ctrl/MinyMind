@@ -88,7 +88,7 @@ def forward(inputs):
             activations_couche.append(activation)
 
         # Une fois la couche finie, les activations deviennent les inputs de la couche suivante
-        inputs = activations_couche
+        activations = activations_couche
 
     return inputs
 
